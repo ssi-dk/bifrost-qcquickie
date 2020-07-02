@@ -1,6 +1,6 @@
 FROM ssidk/bifrost-base:2.0.5
 
-ARG version="v1.0.0"
+ARG version="v1.0.2"
 ARG last_updated="02/07/2020"
 ARG name="qcquickie"
 ARG full_name="bifrost-${name}"
