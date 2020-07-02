@@ -1,6 +1,6 @@
 FROM ssidk/bifrost-base:2.0.5
 
-ARG version="v1.0.2"
+ARG version="v1.0.3"
 ARG last_updated="02/07/2020"
 ARG name="qcquickie"
 ARG full_name="bifrost-${name}"
@@ -19,7 +19,6 @@ RUN \
     conda install -yq -c conda-forge -c bioconda -c defaults cyvcf2==0.11.4; \
     conda install -yq -c conda-forge -c bioconda -c defaults fastqc; \
     # Don't use conda for Quast they cap the python version which causes issues with install
-    pip install -q quast==5.0.2;
     # Note prokka has a 1 year deadline due to tbl2asn. 1.14.6 was made available Feb 20th
 #- Tools to install:end ----------------------------------------------------------------------------
 

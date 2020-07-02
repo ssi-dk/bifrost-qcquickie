@@ -193,33 +193,6 @@ rule assembly_check__rename_contigs:
             datahandling.log(log_err, str(traceback.format_exc()))
 
 
-rule_name = "assembly_check__quast_on_contigs"
-rule assembly_check__quast_on_contigs:
-    # Static
-    message:
-        "Running step:" + rule_name
-    threads:
-        global_threads
-    resources:
-        memory_in_GB = global_memory_in_GB
-    shadow:
-        "shallow"
-    log:
-        out_file = rules.setup.params.folder + "/log/" + rule_name + ".out.log",
-        err_file = rules.setup.params.folder + "/log/" + rule_name + ".err.log",
-    benchmark:
-        rules.setup.params.folder + "/benchmarks/" + rule_name + ".benchmark"
-    # Dynamic
-    message:
-        "Running step: {rule}"
-    input:
-        contigs = rules.assembly_check__rename_contigs.output.contigs
-    output:
-        quast = directory(rules.setup.params.folder + "/quast")
-    shell:
-        "quast.py --threads {threads} {input.contigs} -o {output.quast} 1> {log.out_file} 2> {log.err_file}"
-
-
 rule_name = "assembly_check__sketch_on_contigs"
 rule assembly_check__sketch_on_contigs:
     # Static
@@ -439,7 +412,6 @@ rule datadump_qcquickie:
     # Dynamic
     input:
         rules.fastqc_on_reads.output.fastqc_summary,
-        rules.assembly_check__quast_on_contigs.output.quast,
         rules.assembly_check__sketch_on_contigs.output.sketch,
         rules.post_assembly__stats.output.stats,
         rules.post_assembly__samtools_stats.output.stats,
