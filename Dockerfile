@@ -1,4 +1,4 @@
-FROM ssidk/bifrost-base:2.0.5
+FROM ssidk/bifrost-base:latest
 
 ARG version="v1.0.4"
 ARG last_updated="02/07/2020"

@@ -45,7 +45,6 @@ db_values_changes:
   files:
     - qcquickie/contigs.fasta
     - qcquickie/contigs.bin.cov
-    - qcquickie/contigs.gff
     - qcquickie/contigs.pileup
     - qcquickie/contigs.sketch
     - qcquickie/contigs.stats
@@ -90,5 +89,5 @@ db_values_changes:
         qcquickie/log/setup__filter_reads_with_bbduk_err_log: {}
         qcquickie/quast/report_tsv: {}
         qcquickie/contigs_variants: {}
-        assemblatron/contigs_stats: {}
+        qcquickie/contigs_stats: {}
 #---------------------------------------------------------------------------------------------------
